@@ -23,7 +23,7 @@ namespace CloseWindows
 
             foreach (Process process in processesList)
             {
-                openWindowsList.Add(new OpenWindow { WindowsName = process.ProcessName });
+                openWindowsList.Add(new OpenWindow {Process = process});
             }
 
             LstOpenWindows.ItemsSource = openWindowsList;
@@ -37,9 +37,9 @@ namespace CloseWindows
             {
                 if (openWindowsList[i].IsChecked)
                 {
-                    //processesList[i].Kill();
+                    //openWindowsList[i].Kill();
                     // TODO : Add Another button to KILL all tasks immediately
-                    processesList[i].CloseMainWindow();
+                    openWindowsList[i].CloseWindow();
                     openWindowsList.RemoveAt(i);
                     i--;
 
@@ -51,13 +51,20 @@ namespace CloseWindows
         }
     }
 
-    public class OpenWindow : Process
+    public class OpenWindow
     {
+        public string WindowsName { get { return Process.ProcessName; } }
+        public bool IsChecked { get; set; }
+        public Process Process { get; set; }
+
         public OpenWindow()
         {
             IsChecked = true;
         }
-        public string WindowsName { get; set; }
-        public bool IsChecked { get; set; }
+
+        public void CloseWindow()
+        {
+            Process.CloseMainWindow();
+        }
     }
 }
