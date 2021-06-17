@@ -11,15 +11,22 @@ namespace CloseWindows
     /// </summary>
     public partial class MainWindow : Window
     {
-        private OpenWindow window;
         private List<OpenWindow> openWindowsList;
-        private Process[] processesArray;
+        private List<Process> processesList;
 
         public MainWindow()
         {
             InitializeComponent();
-            processesArray = Process.GetProcesses().Where(x => x.MainWindowHandle != IntPtr.Zero).ToArray();
-            LstOpenWindows.ItemsSource = processesArray;
+            processesList = Process.GetProcesses().Where(x => x.MainWindowHandle != IntPtr.Zero).ToList();
+
+            openWindowsList = new List<OpenWindow>();
+
+            foreach (Process process in processesList)
+            {
+                openWindowsList.Add(new OpenWindow { WindowsName = process.ProcessName });
+            }
+
+            LstOpenWindows.ItemsSource = openWindowsList;
         }
        
         private void Close_All_Button(object sender, RoutedEventArgs e)
@@ -30,6 +37,9 @@ namespace CloseWindows
             {
                 if (openWindowsList[i].IsChecked)
                 {
+                    //processesList[i].Kill();
+                    // TODO : Add Another button to KILL all tasks immediately
+                    processesList[i].CloseMainWindow();
                     openWindowsList.RemoveAt(i);
                     i--;
 
@@ -41,8 +51,12 @@ namespace CloseWindows
         }
     }
 
-    public class OpenWindow
+    public class OpenWindow : Process
     {
+        public OpenWindow()
+        {
+            IsChecked = true;
+        }
         public string WindowsName { get; set; }
         public bool IsChecked { get; set; }
     }
