@@ -20,7 +20,30 @@ namespace CloseWindows
 
             LstOpenWindows.ItemsSource = GetNewListOfOpenWindows();
         }
-       
+
+        #region Event Handlers
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            if (openWindowsList == null)
+            {
+                return;
+            }
+
+            openWindowsList.ForEach(x => x.IsChecked = true);
+            LstOpenWindows.Items.Refresh();
+        }
+
+        private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            if (openWindowsList == null)
+            {
+                return;
+            }
+
+            openWindowsList.ForEach(x => x.IsChecked = false);
+            LstOpenWindows.Items.Refresh();
+        }
+
         private void Close_All_Button(object sender, RoutedEventArgs e)
         {
             int amountOfWindowsClosed = 0;
@@ -42,6 +65,10 @@ namespace CloseWindows
             LstOpenWindows.Items.Refresh();
         }
 
+        #endregion
+
+        #region Private Methods
+
         private List<OpenWindow> GetNewListOfOpenWindows()
         {
             processesList = Process.GetProcesses().
@@ -57,6 +84,8 @@ namespace CloseWindows
 
             return openWindowsList;
         }
+
+        #endregion
     }
 
     public class OpenWindow

@@ -8,6 +8,8 @@
         Title="MainWindow" Height="450" Width="400">
     <Grid>
         <StackPanel VerticalAlignment="Bottom">
+            <TextBlock> Select All</TextBlock>
+            <CheckBox IsChecked="True" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>
             <ListView 
                      x:Name="LstOpenWindows"
                      Height="auto" 
