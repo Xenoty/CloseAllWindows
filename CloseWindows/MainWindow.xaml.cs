@@ -17,16 +17,8 @@ namespace CloseWindows
         public MainWindow()
         {
             InitializeComponent();
-            processesList = Process.GetProcesses().Where(x => x.MainWindowHandle != IntPtr.Zero).ToList();
 
-            openWindowsList = new List<OpenWindow>();
-
-            foreach (Process process in processesList)
-            {
-                openWindowsList.Add(new OpenWindow {Process = process});
-            }
-
-            LstOpenWindows.ItemsSource = openWindowsList;
+            LstOpenWindows.ItemsSource = GetNewListOfOpenWindows();
         }
        
         private void Close_All_Button(object sender, RoutedEventArgs e)
@@ -48,6 +40,22 @@ namespace CloseWindows
             }
 
             LstOpenWindows.Items.Refresh();
+        }
+
+        private List<OpenWindow> GetNewListOfOpenWindows()
+        {
+            processesList = Process.GetProcesses().
+                   Where(x => x.MainWindowHandle != IntPtr.Zero).
+                   ToList();
+
+            openWindowsList = new List<OpenWindow>();
+
+            foreach (Process process in processesList)
+            {
+                openWindowsList.Add(new OpenWindow { Process = process });
+            }
+
+            return openWindowsList;
         }
     }
 
