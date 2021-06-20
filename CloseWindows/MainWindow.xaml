@@ -8,6 +8,13 @@
         Title="MainWindow" Height="450" Width="400">
     <Grid>
         <StackPanel VerticalAlignment="Bottom">
+            <Button Height="50" 
+                    Background="LightCoral" 
+                    Foreground="White" 
+                    FontSize="20px"
+                    Click="Refresh_Button_Click">
+                <TextBlock>Refresh</TextBlock>
+            </Button>
             <TextBlock> Select All</TextBlock>
             <CheckBox IsChecked="True" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>
             <ListView 

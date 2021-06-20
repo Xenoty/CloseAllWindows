@@ -30,7 +30,7 @@ namespace CloseWindows
             }
 
             openWindowsList.ForEach(x => x.IsChecked = true);
-            LstOpenWindows.Items.Refresh();
+            RefreshOpenWindowsItems();
         }
 
         private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
@@ -41,7 +41,7 @@ namespace CloseWindows
             }
 
             openWindowsList.ForEach(x => x.IsChecked = false);
-            LstOpenWindows.Items.Refresh();
+            RefreshOpenWindowsItems();
         }
 
         private void Close_All_Button(object sender, RoutedEventArgs e)
@@ -62,7 +62,13 @@ namespace CloseWindows
                 }
             }
 
-            LstOpenWindows.Items.Refresh();
+            RefreshOpenWindowsItems();
+        }
+
+        private void Refresh_Button_Click(object sender, RoutedEventArgs e)
+        {
+            LstOpenWindows.ItemsSource = GetNewListOfOpenWindows();
+            RefreshOpenWindowsItems();
         }
 
         #endregion
@@ -83,6 +89,11 @@ namespace CloseWindows
             }
 
             return openWindowsList;
+        }
+
+        private void RefreshOpenWindowsItems()
+        {
+            LstOpenWindows.Items.Refresh();
         }
 
         #endregion
