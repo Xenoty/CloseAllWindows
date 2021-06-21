@@ -102,6 +102,7 @@ namespace CloseWindows
     public class OpenWindow
     {
         public string WindowsName { get { return Process.ProcessName; } }
+        public DateTime StartTime { get { return Process.StartTime; } }
         public bool IsChecked { get; set; }
         public Process Process { get; set; }
 

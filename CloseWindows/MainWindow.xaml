@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CloseWindows"
         mc:Ignorable="d"
-        Title="MainWindow" Height="460" Width="300" MinWidth="300" MinHeight="460">
+        Title="MainWindow" Height="460" Width="300" MinWidth="450" MinHeight="460">
     <Grid>
         <StackPanel Orientation="Vertical" VerticalAlignment="Bottom">
             <TextBlock TextAlignment="Center" 
@@ -45,6 +45,11 @@
                             Header="Application" 
                             DisplayMemberBinding="{Binding WindowsName}"
                             Width="180px"
+                           />
+                        <GridViewColumn 
+                            Header="Start Time" 
+                            DisplayMemberBinding="{Binding StartTime}"
+                            Width="200px"
                            />
                         <GridViewColumn Header="Close">
                             <GridViewColumn.CellTemplate>
