@@ -38,10 +38,12 @@
                      MinHeight="300"
                      MaxHeight="300"
                      Background="LightGray"
-                     FontSize="15px">
+                     FontSize="15px"
+                     >
                 <ListView.View>
                     <GridView>
                         <GridViewColumn 
+                            x:Name="gridViewColOne"
                             Header="Application" 
                             DisplayMemberBinding="{Binding WindowsName}"
                             Width="180px"

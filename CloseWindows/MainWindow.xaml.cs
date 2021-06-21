@@ -19,6 +19,7 @@ namespace CloseWindows
             InitializeComponent();
 
             LstOpenWindows.ItemsSource = GetNewListOfOpenWindows();
+            gridViewColOne.Header = "Application (" + openWindowsList.Count + ")";
         }
 
         #region Event Handlers
@@ -94,6 +95,7 @@ namespace CloseWindows
         private void RefreshOpenWindowsItems()
         {
             LstOpenWindows.Items.Refresh();
+            gridViewColOne.Header = "Application (" + openWindowsList.Count + ")";
         }
 
         #endregion
