@@ -5,30 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CloseWindows"
         mc:Ignorable="d"
-        Title="MainWindow" Height="460" Width="300" MinWidth="450" MinHeight="460">
+        Title="MainWindow" Height="500" Width="300" MinWidth="450" MinHeight="500">
     <Grid>
         <StackPanel Orientation="Vertical" VerticalAlignment="Bottom">
             <TextBlock TextAlignment="Center" 
                        FontSize="25px"
                        Margin="0,0,0,10px">Cleared</TextBlock>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" 
-                        Height="25"
-                        Margin="0,0,0,10px">
-                <Button 
+            <Button 
                     Style="{DynamicResource BtnMain}" 
                     BorderThickness="0"
-                    FontSize="13px"
+                    FontSize="16px"
                     Click="Refresh_Button_Click"
                     Content="Refresh"
                     Padding="20px 0"
-                    Margin="0,0,40,0"
+                    Width="100px"
+                    Margin="0,0,0,10"
                     >
-                </Button>
+            </Button>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" 
+                        Height="25"
+                        Margin="0,0,0,10px">
                 <TextBlock VerticalAlignment="Center" FontSize="13px" Margin="0,0,10,0">Select All</TextBlock>
                 <CheckBox 
-                    IsChecked="True" 
+                    x:Name="chkBox_SelectAll"
                     Checked="CheckBox_Checked" 
                     Unchecked="CheckBox_Unchecked"
+                    VerticalAlignment="Center"
+                    Margin="0,0,10,0"/>
+                <TextBlock VerticalAlignment="Center" FontSize="13px" Margin="0,0,10,0">Show Start Time</TextBlock>
+                <CheckBox 
+                    x:Name="chkBox_ShowStartTime"
+                    Checked="ChkBox_StartTime_Checked" 
+                    Unchecked="ChkBox_StartTime_Unchecked"
                     VerticalAlignment="Center"/>
             </StackPanel>
             <ListView 
@@ -49,6 +57,7 @@
                             Width="180px"
                            />
                         <GridViewColumn 
+                            x:Name="gvColumn_StartTime"
                             Header="Start Time" 
                             DisplayMemberBinding="{Binding StartTime}"
                             Width="200px"

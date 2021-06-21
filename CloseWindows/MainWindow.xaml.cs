@@ -19,7 +19,10 @@ namespace CloseWindows
             InitializeComponent();
 
             LstOpenWindows.ItemsSource = GetNewListOfOpenWindows();
-            gridViewColOne.Header = "Application (" + openWindowsList.Count + ")";
+            RefreshOpenWindowsItems();
+
+            chkBox_SelectAll.IsChecked = true;
+            chkBox_ShowStartTime.IsChecked = true;
         }
 
         #region Event Handlers
@@ -43,6 +46,16 @@ namespace CloseWindows
 
             openWindowsList.ForEach(x => x.IsChecked = false);
             RefreshOpenWindowsItems();
+        }
+
+        private void ChkBox_StartTime_Checked(object sender, RoutedEventArgs e)
+        {
+            gvColumn_StartTime.Width = 200;
+        }
+
+        private void ChkBox_StartTime_Unchecked(object sender, RoutedEventArgs e)
+        {
+            gvColumn_StartTime.Width = 0;
         }
 
         private void Close_All_Button(object sender, RoutedEventArgs e)
