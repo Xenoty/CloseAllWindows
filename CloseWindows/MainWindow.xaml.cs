@@ -21,7 +21,7 @@ namespace CloseWindows
             LstOpenWindows.ItemsSource = GetNewListOfOpenWindows();
             RefreshOpenWindowsItems();
 
-            chkBox_SelectAll.IsChecked = true;
+            chkBox_SelectAll.IsChecked = false;
             chkBox_ShowStartTime.IsChecked = true;
         }
 
@@ -66,9 +66,15 @@ namespace CloseWindows
             {
                 if (openWindowsList[i].IsChecked)
                 {
-                    //openWindowsList[i].Kill();
-                    // TODO : Add Another button to KILL all tasks immediately
-                    openWindowsList[i].CloseWindow();
+                    if ((bool)chkBox_Kill.IsChecked)
+                    {
+                        openWindowsList[i].KillWindow();
+                    }
+                    else
+                    {
+                        openWindowsList[i].CloseWindow();
+                    }
+                   
                     openWindowsList.RemoveAt(i);
                     i--;
 
@@ -123,12 +129,17 @@ namespace CloseWindows
 
         public OpenWindow()
         {
-            IsChecked = true;
+            IsChecked = false;
         }
 
         public void CloseWindow()
         {
             Process.CloseMainWindow();
+        }
+
+        public void KillWindow()
+        {
+            Process.Kill();
         }
     }
 }
