@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CloseWindows"
         mc:Ignorable="d"
-        Title="MainWindow" Height="460" Width="300" MinWidth="300">
+        Title="MainWindow" Height="460" Width="300" MinWidth="300" MinHeight="460">
     <Grid>
         <StackPanel Orientation="Vertical" VerticalAlignment="Bottom">
             <TextBlock TextAlignment="Center" 
@@ -15,14 +15,14 @@
                         Height="25"
                         Margin="0,0,0,10px">
                 <Button 
-                    Background="LightCoral" 
-                    Foreground="White" 
+                    Style="{DynamicResource BtnMain}" 
                     BorderThickness="0"
                     FontSize="13px"
                     Click="Refresh_Button_Click"
                     Content="Refresh"
                     Padding="20px 0"
-                    Margin="0,0,40,0">
+                    Margin="0,0,40,0"
+                    >
                 </Button>
                 <TextBlock VerticalAlignment="Center" FontSize="13px" Margin="0,0,10,0">Select All</TextBlock>
                 <CheckBox 
@@ -56,9 +56,9 @@
                     </GridView>
                 </ListView.View>
             </ListView>
-            <Button Height="50" 
-                    Background="LightCoral" 
-                    Foreground="White" 
+            <Button 
+                    Style="{DynamicResource BtnMain}" 
+                    Height="50" 
                     FontSize="20px"
                     Click="Close_All_Button"
                     Content="Close All"
