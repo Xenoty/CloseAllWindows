@@ -17,7 +17,7 @@
                     FontSize="16px"
                     Click="Refresh_Button_Click"
                     Content="Refresh"
-                    Padding="20px 0"
+                    Padding="0 3"
                     Width="100px"
                     Margin="0,0,0,10"
                     >
