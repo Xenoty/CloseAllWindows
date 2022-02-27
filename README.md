@@ -1,6 +1,8 @@
 # Download and Installation
 
-TODO
+> This is a work in progress. It does work in its current release.
+
+Once development has finished, a download link will be provided.
 
 # What does this do?
 This program was created to help close multiple program windows with a single button. Each program window is sent a message to safely close the window, and if it is unable to close it safely, the default window dialog box will be displayed for you to take the right action.
@@ -22,33 +24,4 @@ This can be done through other means:
 - Other methods that I have not listed
 
 The method I used to do was Windows+Tab, as I felt this was easier and safer incase I had unsaved work.
-
-## Save Time
-
-This is an **example**:
-- Average amount of open windows is 10
-- Lets say it takes 0.3s to close each window moving my cursor to the X button.
-
- > Total Seconds = 3s (10 * 0.3)
-
- If we use this program:
- - Select All Option
- - Click "Close Windows"
- - Time to perform this is 0.5s
-
- > Total Seconds = 0.5s
-
-That may not seem like a lot, but if you add it up over time the difference gets bigger. Lets assume the following
-
-- Work 5 times a week
-- Around 48 weeks of the year
-
-| Method | Calculation | Seconds a Year | Minutes a Year |
-| --- | ----------- | --- | --- |
-| Manual |  (10 * 0.3 * 5 * 48) | 720s | 12m
-| Program | (0.5 * 5 *48) | 120s | 2m
-
-That is x6 Faster than using the case above, it may not be to this extent but it is an example of how much time you can save by simply using this program. 
-
-
-
+Using this app, I just click a single button and closes everything safely. 
